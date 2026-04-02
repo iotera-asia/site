@@ -3,3 +3,26 @@
 @theme inline {
   --font-sans: var(--font-geist);
 }
+
+.under-construction {
+  font-variation-settings: "wght" 460;
+  animation: under-construction-weight 3.6s ease-in-out infinite;
+}
+
+@keyframes under-construction-weight {
+  0%,
+  100% {
+    font-variation-settings: "wght" 420;
+  }
+
+  50% {
+    font-variation-settings: "wght" 560;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .under-construction {
+    animation: none;
+    font-variation-settings: "wght" 460;
+  }
+}
