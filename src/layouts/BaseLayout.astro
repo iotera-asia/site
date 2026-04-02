@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 interface Props {
   title?: string;
   description?: string;
@@ -8,6 +10,16 @@ const {
   title = "IoTera",
   description = "Property-grade utility monitoring for modern facilities.",
 } = Astro.props;
+
+const geistFontFace = `
+  @font-face {
+    font-family: "Geist";
+    src: url("/fonts/Geist-Variable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+`;
 ---
 
 <!doctype html>
@@ -22,227 +34,10 @@ const {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
     <title>{title}</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f7f6f1;
-        --bg-accent: #e9ece5;
-        --surface: rgba(255, 255, 255, 0.74);
-        --text: #102126;
-        --muted: #4b626a;
-        --line: rgba(16, 33, 38, 0.12);
-        --brand: #156f63;
-        --brand-strong: #0f5b52;
-        --shadow: 0 24px 60px rgba(16, 33, 38, 0.12);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        margin: 0;
-        min-height: 100%;
-      }
-
-      body {
-        font-family:
-          "Avenir Next", Avenir, "Segoe UI", sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at top left, rgba(21, 111, 99, 0.12), transparent 32%),
-          radial-gradient(circle at bottom right, rgba(232, 178, 76, 0.14), transparent 30%),
-          linear-gradient(180deg, var(--bg) 0%, #fdfcf8 100%);
-      }
-
-      a {
-        color: inherit;
-      }
-
-      .page-shell {
-        width: min(1120px, calc(100vw - 2rem));
-        margin: 0 auto;
-        padding: 24px 0 48px;
-      }
-
-      .site-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 12px 0 24px;
-      }
-
-      .site-header img {
-        height: 38px;
-        width: auto;
-      }
-
-      .site-nav {
-        display: flex;
-        gap: 18px;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-        gap: 28px;
-        align-items: stretch;
-        margin-top: 12px;
-      }
-
-      .panel,
-      .note,
-      .stat {
-        border: 1px solid var(--line);
-        background: var(--surface);
-        backdrop-filter: blur(14px);
-        box-shadow: var(--shadow);
-      }
-
-      .hero-copy {
-        border-radius: 30px;
-        padding: 40px;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(21, 111, 99, 0.08);
-        color: var(--brand-strong);
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 18px 0 14px;
-        font-size: clamp(2.6rem, 7vw, 5.6rem);
-        line-height: 0.95;
-        letter-spacing: -0.05em;
-      }
-
-      .lead {
-        max-width: 44rem;
-        color: var(--muted);
-        font-size: 1.08rem;
-        line-height: 1.7;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 28px;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 48px;
-        padding: 0 18px;
-        border-radius: 999px;
-        border: 1px solid transparent;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .button.primary {
-        background: var(--brand);
-        color: white;
-      }
-
-      .button.secondary {
-        border-color: var(--line);
-        background: rgba(255, 255, 255, 0.6);
-      }
-
-      .hero-side {
-        display: grid;
-        gap: 18px;
-      }
-
-      .note {
-        border-radius: 28px;
-        padding: 24px;
-      }
-
-      .note h2 {
-        margin: 0 0 8px;
-        font-size: 1.05rem;
-      }
-
-      .note p,
-      .note li {
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .note ul {
-        margin: 14px 0 0;
-        padding-left: 18px;
-      }
-
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-        margin-top: 18px;
-      }
-
-      .stat {
-        border-radius: 22px;
-        padding: 22px 20px;
-      }
-
-      .stat strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1.8rem;
-        letter-spacing: -0.04em;
-      }
-
-      .stat span {
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .footer {
-        margin-top: 36px;
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-copy {
-          padding: 28px;
-          border-radius: 24px;
-        }
-
-        .stats {
-          grid-template-columns: 1fr;
-        }
-
-        .site-header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-    </style>
+    <style is:inline set:html={geistFontFace} />
   </head>
-  <body>
-    <main class="page-shell">
+  <body class="min-h-screen bg-stone-50 font-sans text-slate-900 antialiased">
+    <main>
       <slot />
     </main>
   </body>

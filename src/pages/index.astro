@@ -4,78 +4,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="IoTera"
-  description="IoTera gives facility teams a clearer way to watch utility usage across buildings, meters, and operating environments."
+  description="IoTera is under construction."
 >
-  <header class="site-header">
-    <img src="/iotera-logo.png" alt="IoTera" />
-    <nav class="site-nav" aria-label="Primary">
-      <a href="#overview">Overview</a>
-      <a href="#status">Status</a>
-      <a href="https://app.iotera.asia">App</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="overview">
-    <div class="panel hero-copy">
-      <div class="eyebrow">Utility visibility for modern properties</div>
-      <h1>Monitor meter data without the spreadsheet sprawl.</h1>
-      <p class="lead">
-        IoTera is a property-focused monitoring platform for facilities that need
-        a cleaner view of utility activity across sites, devices, and operating
-        conditions. This is a temporary landing page scaffold for the marketing
-        site and infrastructure setup.
+  <section class="flex min-h-screen items-center justify-center px-6">
+    <div class="flex flex-col items-center gap-4 text-center">
+      <img
+        src="/iotera-logo.png"
+        alt="IoTera"
+        class="h-auto w-full max-w-[220px] sm:max-w-[280px]"
+      />
+      <p class="text-base font-medium tracking-[0.18em] text-slate-500 uppercase sm:text-lg">
+        Under construction
       </p>
-      <div class="actions">
-        <a class="button primary" href="https://app.iotera.asia">Open app</a>
-        <a class="button secondary" href="mailto:hello@iotera.asia">Contact</a>
-      </div>
-      <div class="stats">
-        <div class="stat">
-          <strong>Astro</strong>
-          <span>Static-site foundation ready for Netlify deployment.</span>
-        </div>
-        <div class="stat">
-          <strong>Cloudflare</strong>
-          <span>Planned DNS authority with separate app, API, and MQTT hosts.</span>
-        </div>
-        <div class="stat">
-          <strong>IoTera</strong>
-          <span>Brand assets and favicon baseline copied from the main app.</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-side" id="status">
-      <aside class="note">
-        <h2>Initial scope</h2>
-        <p>
-          This repo is set up only for the static site foundation. Content,
-          structure, CMS decisions, and launch design can be handled next.
-        </p>
-        <ul>
-          <li>Single Astro page scaffold</li>
-          <li>Basic brand image and favicon set</li>
-          <li>Ready for Netlify and GitHub wiring</li>
-        </ul>
-      </aside>
-
-      <aside class="note">
-        <h2>Intended topology</h2>
-        <p>
-          The marketing site will live separately from the product surfaces.
-        </p>
-        <ul>
-          <li><strong>iotera.asia</strong> for the lander</li>
-          <li><strong>app.iotera.asia</strong> for the product UI</li>
-          <li><strong>api.iotera.asia</strong> for the backend API</li>
-          <li><strong>mqtt.iotera.asia</strong> for broker access</li>
-        </ul>
-      </aside>
     </div>
   </section>
-
-  <p class="footer">
-    Barebones starter page. Replace this once the content model and launch
-    direction are decided.
-  </p>
 </BaseLayout>
