@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/global.css";
 
 interface Props {
@@ -10,16 +11,6 @@ const {
   title = "IoTera",
   description = "Property-grade utility monitoring for modern facilities.",
 } = Astro.props;
-
-const geistFontFace = `
-  @font-face {
-    font-family: "Geist";
-    src: url("/fonts/Geist-Variable.woff2") format("woff2");
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-  }
-`;
 ---
 
 <!doctype html>
@@ -34,7 +25,7 @@ const geistFontFace = `
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
     <title>{title}</title>
-    <style is:inline set:html={geistFontFace} />
+    <Font cssVariable="--font-geist" preload />
   </head>
   <body class="min-h-screen bg-stone-50 font-sans text-slate-900 antialiased">
     <main>
